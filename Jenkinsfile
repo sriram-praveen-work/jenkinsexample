@@ -14,6 +14,10 @@ pipeline {
 	stages {
         stage('Build') {
             steps {
+                script {
+                    // Create the 'build' directory if it doesn't exist
+                    sh "mkdir -p build"
+                }
                 dir('build') {
                     cmake arguments: '-DCMAKE_TOOLCHAIN_FILE=/home/vvx2kor/sig/jenkinsexample/vcpkg/scripts/buildsystems/vcpkg.cmake ..', installation: 'InSearchPath'
                     cmakeBuild buildType: 'Release', cleanBuild: true, installation: 'InSearchPath', steps: [[withCmake: true]]
