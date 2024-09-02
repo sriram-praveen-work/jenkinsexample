@@ -17,6 +17,16 @@ It's using [CMake](https://cmake.org/) for the build process, [CTest](https://cm
 - [CPPCheck](http://cppcheck.sourceforge.net/) as Static Code Analyzer
 - [Jenkins](https://jenkins.io/) as Build Orchestrator with CMake and CPPCheck plugin
 
+```
+git clone https://github.com/Microsoft/vcpkg.git
+cd vcpkg
+./bootstrap-vcpkg.sh
+./vcpkg integrate install
+./vcpkg install catch2
+ 
+sudo apt-get install cppcheck
+```
+
 Important to note is that CMake needs the Vcpkg toolchain file to resolve the necessary dependencies
 ```
 -DCMAKE_TOOLCHAIN_FILE={YOUR_PATH_TO_VCPKG}/vcpkg/scripts/buildsystems/vcpkg.cmake
